@@ -6,6 +6,7 @@ const errorMsg = document.querySelector('.errorMsg');
 const homer = document.querySelector('.homerImg');
 homer.addEventListener('click', () => {
     errorMsg.innerHTML = "";
+    homer.classList.add('selectBorder');
     setCurrentChar = 'homer'
 });
 
@@ -18,11 +19,9 @@ wallpaper.addEventListener('click', (e) => {
     } else {
         const box = document.createElement('div');
         box.classList.add('targetBox');
-        let xPosition = e.clientX;
-        let yPosition = e.clientY;
-        box.style.left = xPosition;
-        // box.style.top = `${yPosition}`
+        box.style.left = (e.pageX - 32 + 'px');
+        box.style.top = (e.pageY - 272 + 'px');
         wallpaperBox.append(box);
-        console.log(xPosition);
+        console.log(e.clientX);
     }
 });
