@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("console.log('hello from index.js')\n\n//# sourceURL=webpack://wheres-waldo-project/./src/index.js?");
+eval("\nlet setCurrentChar = '';\n\nconst errorMsg = document.querySelector('.errorMsg');\n\nconst homer = document.querySelector('.homerImg');\nhomer.addEventListener('click', () => {\n    errorMsg.innerHTML = \"\";\n    setCurrentChar = 'homer'\n});\n\nconst wallpaperBox = document.querySelector('.wallpaperBox');\n\nconst wallpaper = document.querySelector('.wallpaper');\nwallpaper.addEventListener('click', (e) => {\n    if(setCurrentChar === '') {\n        errorMsg.innerHTML = \"Select a character first!\"\n    } else {\n        const box = document.createElement('div');\n        box.classList.add('targetBox');\n        let xPosition = e.clientX;\n        let yPosition = e.clientY;\n        box.style.left = xPosition;\n        // box.style.top = `${yPosition}`\n        wallpaperBox.append(box);\n        console.log(xPosition);\n    }\n});\n\n//# sourceURL=webpack://wheres-waldo-project/./src/index.js?");
 
 /***/ })
 
