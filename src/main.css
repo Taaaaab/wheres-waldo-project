@@ -13,7 +13,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     margin-bottom: 10px;
 }
@@ -40,10 +40,16 @@ header {
 
 .targetBox {
     position: absolute;
-    box-shadow: 0 0 5px 5px red;
-    border-radius: 2rem;
-    height: 50px;
-    width: 50px;
+    cursor: pointer;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    height: 100px;
+    width: 200px;
+    padding: 10px;
+    border-radius: 1rem;
+    background-image: url("homer.jpg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: 10% 75%;
 }
 
 .cell {

@@ -10,8 +10,9 @@ wallpaper.addEventListener('click', (e) => {
     }
     const box = document.createElement('div');
     box.classList.add('targetBox');
-    box.style.left = (e.pageX - 32 + 'px');
-    box.style.top = (e.pageY - 272 + 'px');
+    box.style.left = (e.pageX - 30 + 'px');
+    box.style.top = (e.pageY - 240 + 'px');
+    box.innerHTML = 'Homer';
     wallpaperBox.append(box);
     
 });

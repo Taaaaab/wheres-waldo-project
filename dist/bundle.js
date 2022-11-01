@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("\nlet setCurrentChar = '';\n\nconst wallpaperBox = document.querySelector('.wallpaperBox');\n\nconst wallpaper = document.querySelector('.wallpaper');\nwallpaper.addEventListener('click', (e) => {\n    if (document.querySelector('.targetBox')) {\n        document.querySelector('.targetBox').remove();\n    }\n    const box = document.createElement('div');\n    box.classList.add('targetBox');\n    box.style.left = (e.pageX - 32 + 'px');\n    box.style.top = (e.pageY - 272 + 'px');\n    wallpaperBox.append(box);\n    \n});\n\n//# sourceURL=webpack://wheres-waldo-project/./src/index.js?");
+eval("\nlet setCurrentChar = '';\n\nconst wallpaperBox = document.querySelector('.wallpaperBox');\n\nconst wallpaper = document.querySelector('.wallpaper');\nwallpaper.addEventListener('click', (e) => {\n    if (document.querySelector('.targetBox')) {\n        document.querySelector('.targetBox').remove();\n    }\n    const box = document.createElement('div');\n    box.classList.add('targetBox');\n    box.style.left = (e.pageX - 30 + 'px');\n    box.style.top = (e.pageY - 240 + 'px');\n    box.innerHTML = 'Homer';\n    wallpaperBox.append(box);\n    \n});\n\n//# sourceURL=webpack://wheres-waldo-project/./src/index.js?");
 
 /***/ })
 
