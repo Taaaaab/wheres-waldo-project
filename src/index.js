@@ -67,10 +67,16 @@ function storeUserClick(e) {
 
 function matchUserToDatabase(userArray, fireArray) {
     let userPosX = userArray[0];
-    let dbPosX = fireArray[0][0].Array;
+    let dbPosX = fireArray[0][1].Array;
+
+    let userPosY = userArray[1];
+    let dbPosY = fireArray[0][0].array;
     console.log(userPosX);
     console.log(dbPosX);
-    if (dbPosX.includes(userPosX)) {
+    console.log(userPosY);
+    console.log(dbPosY);
+    if ( dbPosX.includes(userPosX) ) {
+    // && [dbPosY].includes(userPosY) ) {
         console.log('Match Found!');
         return 
     } else {
