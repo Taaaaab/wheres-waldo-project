@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getFirestore, collection, getDocs } from 'firebase/firestore'
+import { getFirestore, collection, getDocs, doc } from 'firebase/firestore'
 
 const firebaseConfig = {
     apiKey: "AIzaSyCeAPLqSmgf1RwkukFhUyqCA9gdDLofmeM",
@@ -37,21 +37,47 @@ const wallpaperBox = document.querySelector('.wallpaperBox');
 
 const wallpaper = document.querySelector('.wallpaper');
 wallpaper.addEventListener('click', (e) => {
+    // remove target box from previous selection
     if (document.querySelector('.targetBox')) {
         document.querySelector('.targetBox').remove();
     }
+    // create target box around user click
     const box = document.createElement('div');
     let x = e.clientX;
     let y = e.clientY;
-    box.style.left = `${x - e.target.offsetLeft - 60}px`;
-    box.style.top = `${y - e.target.offsetTop - 180}px`;
+    box.style.left = `${x - e.target.offsetLeft - 100}px`;
+    box.style.top = `${y - e.target.offsetTop - 10}px`;
     box.classList.add('targetBox');
-    box.innerHTML = 'Homer';
+    box.innerHTML = 'Which character?';
+    // add characters to target box
+    const homerImg = document.createElement('img');
+    homerImg.classList.add('characterTarget');
+    homerImg.src = '../src/homer.jpg';
+    box.appendChild(homerImg);
+    const apuImg = document.createElement('img');
+    apuImg.classList.add('characterTarget');
+    apuImg.src = '../src/apu.jpg';
+    box.appendChild(apuImg);
+    const bartImg = document.createElement('img');
+    bartImg.classList.add('characterTarget');
+    bartImg.src = '../src/bart.jpg';
+    box.appendChild(bartImg);
+
+    // add target box to wallpaper
     wallpaperBox.append(box);
-    
+
+    // store user click location
     storeUserClick(e);
-    matchUserToDatabase(userClickArray, charLocationArray);
+
+    // have user select character within target box
+    homerImg.addEventListener('click', () => {
+        homerImg.classList.add('characterHighlight');
+        matchUserToHomer(userClickArray, charLocationArray);
+    });
+    
+    
 });
+
 
 function storeUserClick(e) {
     userClickArray = [];
@@ -65,22 +91,27 @@ function storeUserClick(e) {
     return userClickArray;
 };
 
-function matchUserToDatabase(userArray, fireArray) {
+function matchUserToHomer(userArray, fireArray) {
     let userPosX = userArray[0];
     let dbPosX = fireArray[0][1].Array;
 
     let userPosY = userArray[1];
     let dbPosY = fireArray[0][0].array;
-    console.log(userPosX);
+  
+    console.log(userPosX, userPosY);
     console.log(dbPosX);
-    console.log(userPosY);
     console.log(dbPosY);
-    if ( dbPosX.includes(userPosX) ) {
-    // && [dbPosY].includes(userPosY) ) {
-        console.log('Match Found!');
+    if ( dbPosX.includes(userPosX) && dbPosY.includes(userPosY) ) {
+        console.log('Homer Found!');
+        const homerFound = document.createElement('div');
+        homerFound.classList.add('homerFound');
+        wallpaperBox.append(homerFound);
+
+        const characterHomer = document.querySelector('.characterHomer');
+        characterHomer.innerHTML = 'Homer Found!'
         return 
     } else {
-        console.log('No match');
+        console.log('Homer not found');
         return 
     }
 };
