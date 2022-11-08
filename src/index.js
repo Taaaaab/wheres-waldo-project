@@ -71,10 +71,26 @@ wallpaper.addEventListener('click', (e) => {
 
     // have user select character within target box
     homerImg.addEventListener('click', () => {
+        apuImg.classList.remove('characterHighlight');
+        bartImg.classList.remove('characterHighlight');
+
         homerImg.classList.add('characterHighlight');
         matchUserToHomer(userClickArray, charLocationArray);
     });
-    
+    apuImg.addEventListener('click', () => {
+        homerImg.classList.remove('characterHighlight');
+        bartImg.classList.remove('characterHighlight');
+
+        apuImg.classList.add('characterHighlight');
+        matchUserToApu(userClickArray, charLocationArray);
+    });
+    bartImg.addEventListener('click', () => {
+        homerImg.classList.remove('characterHighlight');
+        apuImg.classList.remove('characterHighlight');
+
+        bartImg.classList.add('characterHighlight');
+        matchUserToBart(userClickArray, charLocationArray);
+    });
     
 });
 
@@ -93,10 +109,10 @@ function storeUserClick(e) {
 
 function matchUserToHomer(userArray, fireArray) {
     let userPosX = userArray[0];
-    let dbPosX = fireArray[0][1].Array;
+    let dbPosX = fireArray[0][4].Array;
 
     let userPosY = userArray[1];
-    let dbPosY = fireArray[0][0].array;
+    let dbPosY = fireArray[0][3].array;
   
     console.log(userPosX, userPosY);
     console.log(dbPosX);
@@ -112,6 +128,56 @@ function matchUserToHomer(userArray, fireArray) {
         return 
     } else {
         console.log('Homer not found');
+        return 
+    }
+};
+
+function matchUserToApu(userArray, fireArray) {
+    let userPosX = userArray[0];
+    let dbPosX = fireArray[0][0].apu;
+
+    let userPosY = userArray[1];
+    let dbPosY = fireArray[0][2].apuY;
+  
+    console.log(userPosX, userPosY);
+    console.log(dbPosX);
+    console.log(dbPosY);
+    if ( dbPosX.includes(userPosX) && dbPosY.includes(userPosY) ) {
+        console.log('Apu Found!');
+        const apuFound = document.createElement('div');
+        apuFound.classList.add('apuFound');
+        wallpaperBox.append(apuFound);
+
+        const characterApu = document.querySelector('.characterApu');
+        characterApu.innerHTML = 'Apu Found!'
+        return 
+    } else {
+        console.log('Apu not found');
+        return 
+    }
+};
+
+function matchUserToBart(userArray, fireArray) {
+    let userPosX = userArray[0];
+    let dbPosX = fireArray[0][1].bartX;
+
+    let userPosY = userArray[1];
+    let dbPosY = fireArray[0][5].bartY;
+  
+    console.log(userPosX, userPosY);
+    console.log(dbPosX);
+    console.log(dbPosY);
+    if ( dbPosX.includes(userPosX) && dbPosY.includes(userPosY) ) {
+        console.log('Bart Found!');
+        const bartFound = document.createElement('div');
+        bartFound.classList.add('bartFound');
+        wallpaperBox.append(bartFound);
+
+        const characterBart = document.querySelector('.characterBart');
+        characterBart.innerHTML = 'Bart Found!'
+        return 
+    } else {
+        console.log('Bart not found');
         return 
     }
 };

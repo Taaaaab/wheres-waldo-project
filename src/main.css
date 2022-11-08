@@ -97,4 +97,31 @@ footer {
     width: 35px;
     left: 905px;
     top: 270px;
+    z-index: 1;
+}
+
+.apuFound {
+    position: absolute;
+    background-color: rgba(17, 255, 0, 0.5);
+    border-radius: 1rem;
+    height: 80px;
+    width: 35px;
+    left: 510px;
+    top: 445px;
+    z-index: 1;
+}
+
+.bartFound {
+    position: absolute;
+    background-color: rgba(17, 255, 0, 0.5);
+    border-radius: 1rem;
+    height: 80px;
+    width: 35px;
+    left: 1075px;
+    top: 330px;
+    z-index: 1;
+}
+
+a {
+    color: white;
 }
