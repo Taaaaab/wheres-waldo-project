@@ -51,6 +51,21 @@ footer {
     margin: 10px;
 }
 
+.timerBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+    flex-direction: column;
+    background: rgb(70, 70, 70);
+}
+
+#timer {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+}
+
 .wallpaperBox {
     display: flex;
     justify-content: center;
