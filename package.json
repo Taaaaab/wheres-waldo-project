@@ -24,6 +24,7 @@
     "webpack-cli": "^4.10.0"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "firebase": "^9.13.0"
   }
 }

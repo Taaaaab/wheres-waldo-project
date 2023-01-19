@@ -1,13 +1,14 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore, collection, getDocs, doc } from 'firebase/firestore'
+require('dotenv').config()
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCeAPLqSmgf1RwkukFhUyqCA9gdDLofmeM",
-    authDomain: "wheres-waldo-64ad0.firebaseapp.com",
-    projectId: "wheres-waldo-64ad0",
-    storageBucket: "wheres-waldo-64ad0.appspot.com",
-    messagingSenderId: "669960801547",
-    appId: "1:669960801547:web:5cd32ea4cbe8b73b0a660e"
+    apiKey: process.env.API_KEY,
+    authDomain: process.env.AUTH_DOMAIN,
+    projectId: process.env.PROJECT_ID,
+    storageBucket: process.env.STORAGE_BUCKET,
+    messagingSenderId: process.env.MESSAGE_ID,
+    appId: process.env.APP_ID
   };
 
 // initialize firebase app
